@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="55da8a00bdac413c8cd0512049a25345" Name="Diagram1" ZoomLevel="40">
+        <EntityTypeShape EntityType="dbqaModel.AnswerComment" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbqaModel.Answer" Width="1.5" PointX="6.375" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbqaModel.QuestionComment" Width="1.5" PointX="14.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbqaModel.Question" Width="1.5" PointX="8.5" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbqaModel.Table" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbqaModel.User" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="dbqaModel.FK__AnswerCom__Answe__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="dbqaModel.FK__AnswerCom__UserN__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="dbqaModel.FK__Answers__Questio__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="dbqaModel.FK__Answers__UserNam__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="dbqaModel.FK__QuestionC__Quest__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="dbqaModel.FK__QuestionC__UserN__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="dbqaModel.FK__Questions__UserN__4F7CD00D" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
