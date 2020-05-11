@@ -11,14 +11,16 @@ namespace inquizitor2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class QuestionComment
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int QCommentId { get; set; }
         public int QuestionId { get; set; }
         public string Content { get; set; }
         public string UserName { get; set; }
-        public Nullable<System.DateTime> Date { get; set; }
+        public Nullable<System.DateTime> Date { get; set; } = DateTime.Now;
     
         public virtual Question Question { get; set; }
         public virtual User User { get; set; }

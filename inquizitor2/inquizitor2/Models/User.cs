@@ -11,7 +11,8 @@ namespace inquizitor2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,8 +23,12 @@ namespace inquizitor2.Models
             this.QuestionComments = new HashSet<QuestionComment>();
             this.Questions = new HashSet<Question>();
         }
-    
+        [Required(ErrorMessage = "username must be entered")]
+        [StringLength(25, ErrorMessage = "Must be between 4 and 25 characters", MinimumLength = 4)]
         public string UserName { get; set; }
+        [Required(ErrorMessage = "username must be entered")]
+        [StringLength(25, ErrorMessage = "Must be between 5 and 25 characters", MinimumLength = 5)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
         public string LastName { get; set; }
         public string FirstName { get; set; }

@@ -29,7 +29,7 @@ namespace inquizitor2.Models
         public virtual DbSet<Answer> Answers { get; set; }
         public virtual DbSet<QuestionComment> QuestionComments { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
-        public virtual DbSet<Table> Tables { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

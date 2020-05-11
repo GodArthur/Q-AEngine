@@ -11,7 +11,8 @@ namespace inquizitor2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Answer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,12 +20,13 @@ namespace inquizitor2.Models
         {
             this.AnswerComments = new HashSet<AnswerComment>();
         }
-    
+
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AnswerId { get; set; }
         public int QuestionId { get; set; }
         public string Content { get; set; }
         public string UserName { get; set; }
-        public System.DateTime Date { get; set; }
+        public System.DateTime Date { get; set; } = DateTime.Now;
         public int Upvotes { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
