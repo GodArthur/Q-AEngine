@@ -11,6 +11,7 @@ namespace inquizitor2.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class AnswerComment
@@ -20,7 +21,9 @@ namespace inquizitor2.Models
         public int AnswerId { get; set; }
         public string Content { get; set; }
         public string UserName { get; set; }
-        public Nullable<System.DateTime> Date { get; set; } = DateTime.Now;
+
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> Date { get; set; } = DateTime.Now.Date;
     
         public virtual Answer Answer { get; set; }
         public virtual User User { get; set; }

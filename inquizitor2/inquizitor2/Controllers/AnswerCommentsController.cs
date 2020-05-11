@@ -14,27 +14,6 @@ namespace inquizitor2.Controllers
     {
         private dbqaEntities db = new dbqaEntities();
 
-        // GET: AnswerComments
-        public ActionResult Index()
-        {
-            var answerComments = db.AnswerComments.Include(a => a.Answer).Include(a => a.User);
-            return View(answerComments.ToList());
-        }
-
-        // GET: AnswerComments/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AnswerComment answerComment = db.AnswerComments.Find(id);
-            if (answerComment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(answerComment);
-        }
 
         // GET: AnswerComments/Create
         [Authorize]
@@ -68,71 +47,9 @@ namespace inquizitor2.Controllers
                 return RedirectToAction("Details", "Questions", new { id = qid });
             }
 
-            ViewBag.AnswerId = new SelectList(db.Answers, "AnswerId", "Content", answerComment.AnswerId);
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "Password", answerComment.UserName);
             return View(answerComment);
         }
 
-        // GET: AnswerComments/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AnswerComment answerComment = db.AnswerComments.Find(id);
-            if (answerComment == null)
-            {
-                return HttpNotFound();
-            }
-            ViewBag.AnswerId = new SelectList(db.Answers, "AnswerId", "Content", answerComment.AnswerId);
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "Password", answerComment.UserName);
-            return View(answerComment);
-        }
-
-        // POST: AnswerComments/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ACommentId,AnswerId,Content,UserName,Date")] AnswerComment answerComment)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(answerComment).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.AnswerId = new SelectList(db.Answers, "AnswerId", "Content", answerComment.AnswerId);
-            ViewBag.UserName = new SelectList(db.Users, "UserName", "Password", answerComment.UserName);
-            return View(answerComment);
-        }
-
-        // GET: AnswerComments/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AnswerComment answerComment = db.AnswerComments.Find(id);
-            if (answerComment == null)
-            {
-                return HttpNotFound();
-            }
-            return View(answerComment);
-        }
-
-        // POST: AnswerComments/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            AnswerComment answerComment = db.AnswerComments.Find(id);
-            db.AnswerComments.Remove(answerComment);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         protected override void Dispose(bool disposing)
         {

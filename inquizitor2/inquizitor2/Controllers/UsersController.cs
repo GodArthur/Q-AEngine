@@ -17,19 +17,12 @@ namespace inquizitor2.Controllers
     {
         private dbqaEntities db = new dbqaEntities();
 
-        // GET: Users
-        public ActionResult Index()
-        {
-            return View(db.Users.ToList());
-        }
 
-        // GET: Users/Login
         public ActionResult Login(string ReturnUrl)
         {
             ViewBag.ReturnUrl = ReturnUrl;
             return View();
         }
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -62,20 +55,6 @@ namespace inquizitor2.Controllers
         }
 
 
-        // GET: Users/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
 
         // GET: Users/Create
         public ActionResult Create()
@@ -110,66 +89,9 @@ namespace inquizitor2.Controllers
                 ModelState.AddModelError("", "This username already exists");
                 return View(user);
             
-
-            
         }
 
-        // GET: Users/Edit/5
-        public ActionResult Edit(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
-
-        // POST: Users/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserName,Password,LastName,FirstName,Email,Country")] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(user).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(user);
-        }
-
-        // GET: Users/Delete/5
-        public ActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            User user = db.Users.Find(id);
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-            return View(user);
-        }
-
-        // POST: Users/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+    
 
         protected override void Dispose(bool disposing)
         {
