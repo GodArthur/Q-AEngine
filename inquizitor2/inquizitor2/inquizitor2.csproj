@@ -186,35 +186,18 @@
       <DependentUpon>QandA.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Users\Create.cshtml" />
-    <Content Include="Views\Users\Delete.cshtml" />
-    <Content Include="Views\Users\Details.cshtml" />
-    <Content Include="Views\Users\Edit.cshtml" />
-    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Questions\Create.cshtml" />
-    <Content Include="Views\Questions\Delete.cshtml" />
     <Content Include="Views\Questions\Details.cshtml" />
-    <Content Include="Views\Questions\Edit.cshtml" />
     <Content Include="Views\Questions\Index.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Answers\Create.cshtml" />
-    <Content Include="Views\Answers\Delete.cshtml" />
-    <Content Include="Views\Answers\Details.cshtml" />
-    <Content Include="Views\Answers\Edit.cshtml" />
-    <Content Include="Views\Answers\Index.cshtml" />
     <Content Include="Views\QuestionComments\Create.cshtml" />
-    <Content Include="Views\QuestionComments\Delete.cshtml" />
-    <Content Include="Views\QuestionComments\Details.cshtml" />
-    <Content Include="Views\QuestionComments\Edit.cshtml" />
-    <Content Include="Views\QuestionComments\Index.cshtml" />
     <Content Include="Views\AnswerComments\Create.cshtml" />
-    <Content Include="Views\AnswerComments\Delete.cshtml" />
-    <Content Include="Views\AnswerComments\Details.cshtml" />
-    <Content Include="Views\AnswerComments\Edit.cshtml" />
-    <Content Include="Views\AnswerComments\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

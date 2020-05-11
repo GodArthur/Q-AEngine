@@ -11,6 +11,7 @@ namespace inquizitor2.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     public partial class Question
@@ -28,8 +29,8 @@ namespace inquizitor2.Models
         public string Content { get; set; }
         public string UserName { get; set; }
 
-        [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-        public Nullable<System.DateTime> Date { get; set; } = DateTime.Now;
+        [DataType(DataType.Date)]
+        public Nullable<System.DateTime> Date { get; set; } = DateTime.Now.Date;
         public int Views { get; set; }
         public int Upvotes { get; set; }
     
