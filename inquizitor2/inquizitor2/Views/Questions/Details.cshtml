@@ -50,14 +50,12 @@
     {
         <p class="absent">No Comments</p>
         <hr />
-
-
     }
     else
     {
         foreach (inquizitor2.Models.QuestionComment qC in ViewBag.QComments)
         {
-            <p class="comments">@qC.Content <div class="userName">-@qC.User.UserName</div></p>
+            <p class="comments">@qC.Content <div class="userName">-@qC.User.UserName</div> | @Html.DisplayFor(model => qC.Date)</p>
             <hr>
         }
     }
@@ -84,7 +82,7 @@
             foreach (inquizitor2.Models.AnswerComment ac in ans.AnswerComments)
             {
                 <hr />
-                <p class="comments">@ac.Content <div class="userName">-@ac.User.UserName</div> | @ac.Date</p>
+                <p class="comments">@ac.Content <div class="userName">-@ac.User.UserName</div> | @Html.DisplayFor(model => ac.Date)</p>
             }
             
             @Html.ActionLink("Add comment", "Create", "AnswerComments", new { id = ans.AnswerId }, null)
