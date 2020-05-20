@@ -20,8 +20,32 @@ namespace inquizitor2.Controllers
             var questions = db.Questions.OrderByDescending(q => q.Upvotes).Include(q => q.User);
             questions.ToList();
             //sortUp(questions);
-            return View(questions);
+            return View("Index", questions);
         }
+
+
+
+        [Authorize]
+        public ActionResult VoteQuestion(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Question question = db.Questions.Find(id);
+
+            if (question == null)
+            {
+                return HttpNotFound();
+            }
+
+            question.Upvotes += 1;
+            db.SaveChanges();
+
+            return Index();
+        }
+
 
         // GET: Questions/Details/5
         public ActionResult Details(int? id)
@@ -60,7 +84,7 @@ namespace inquizitor2.Controllers
 
             
             //return View();
-            return View(question);
+            return View("Details", question);
         }
 
 

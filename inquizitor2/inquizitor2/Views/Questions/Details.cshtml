@@ -76,7 +76,7 @@
         <hr>
         foreach (inquizitor2.Models.Answer ans in ViewBag.Answers)
         {
-<p id="answers">@ans.Content <div class="userName">-@ans.UserName</div> | @Html.DisplayFor(model => ans.Date)</p>
+<p id="answers">(@ans.Upvotes) @Html.ActionLink("⤊", "VoteAnswer", "Answers", new { id = ans.AnswerId }, new { @classs = "upvoteBtn" }) @ans.Content <div class="userName">-@ans.UserName</div> | @Html.DisplayFor(model => ans.Date)</p>
             <br />
             <br />
             foreach (inquizitor2.Models.AnswerComment ac in ans.AnswerComments)
