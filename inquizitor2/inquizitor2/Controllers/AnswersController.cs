@@ -22,6 +22,29 @@ namespace inquizitor2.Controllers
             return View();
         }
 
+        [Authorize]
+        public ActionResult VoteAnswer(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Answer answer = db.Answers.Find(id);
+
+            if (answer == null)
+            {
+                return HttpNotFound();
+            }
+
+            answer.Upvotes += 1;
+            db.SaveChanges();
+
+            QuestionsController qc = new QuestionsController();
+
+            return RedirectToAction("Details", "Questions", new { id = answer.QuestionId });
+        }
+
         // POST: Answers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
