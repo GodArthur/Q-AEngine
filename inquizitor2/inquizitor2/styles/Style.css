@@ -1,0 +1,32 @@
+﻿
+
+/*|| DETAILS PAGE ||*/
+.comments{
+    margin-left: 2%;
+}
+
+#description{
+    font-size: 20px;
+}
+
+#answers{
+
+    font-size: 16px;
+}
+
+.absent {
+    color: #808080;
+}
+
+.userName{
+
+    font-weight: bold;
+    color: cornflowerblue;
+    display: inline;
+}
+
+.upvoteBtn{
+    font-size: 20px;
+    border-style: solid;
+}
+
